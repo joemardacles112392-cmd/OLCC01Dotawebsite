@@ -1,38 +1,305 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dota</title>
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Dota 2 - Discover Dota</title>
 
 <style>
-        body {
-            background:linear-gradient(to right,#000000,#3b1200);
-            }
-        </style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0502 0%, #200800 50%, #000000 100%);
+    color: #f1f1f1;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ----------------- NAVIGATION ----------------- */
+nav {
+    background: #180600;
+    border-bottom: 2px solid #ff4d00;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-brand {
+    color: #ff5500;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    padding: 5px 8px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4d00;
+}
+
+/* ----------------- CONTAINER ----------------- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 6%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ff5500;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #d1d5db;
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+}
+
+/* ----------------- BANNER IMAGE ----------------- */
+.about-banner-wrap {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.about-banner-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #ff4d00;
+    box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----------------- CONTENT BOX ----------------- */
+.about-card {
+    background: rgba(25, 10, 5, 0.7);
+    border: 1px solid #4a1905;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    margin-bottom: 35px;
+}
+
+.about-card h2 {
+    color: #00e5ff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* ----------------- KEY HIGHLIGHTS ----------------- */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.highlight-box {
+    background: #180802;
+    border: 1px solid #3d1400;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #ff4d00;
+}
+
+.highlight-box h3 {
+    color: #ff5500;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.highlight-box p {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.btn-center {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ff4d00 0%, #b32400 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 77, 0, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff661a 0%, #d92b00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 77, 0, 0.5);
+}
+
+/* ----------------- FOOTER ----------------- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #120400;
+    border-top: 1px solid #331100;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #ffffff;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .container {
+        padding: 30px 5%;
+    }
+
+    .about-card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
 <nav>
-    
+    <div class="nav-brand">Dota 2 Portal</div>
     <ul>
-        <div style=color:white;">
-        <li><a href="index-km6az.html"><strong><strong>Home</a></li><br>
-<div style=color:white;">
-<H1>About Dota</h1>
-        
-        <div style="text-align: center; margin: 20px 0;">
-  <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570/library_hero.jpg" alt="Dota 2 Heroes" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-        
-<div style=color:white;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="armory.html">Armory</a></li>
+        <li><a href="Items.html">Items</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="maps.html">Maps</a></li>
+    </ul>
+</nav>
 
-    <p>Dota 2 is a multiplayer online battle arena (MOBA) game developed by Valve, where two teams of five players compete to destroy the opposing team’s Ancient, a large structure located within their base. Each player controls a unique hero with distinct abilities, strengths, and weaknesses, making teamwork and strategy essential. The game is played on a symmetrical map divided into three lanes, with defensive towers and neutral areas filled with creatures called creeps. Victory requires coordination, resource management, and tactical decision-making throughout the match.<br>
+<!-- MAIN CONTENT -->
+<main class="container">
+    <h1 class="page-title">About Dota 2</h1>
+    <p class="page-subtitle">Ang kasaysayan, gameplay mechanics, at prestihiyosong esports scene ng pinakatanyag na MOBA sa buong mundo.</p>
 
-The depth of Dota 2 comes from its vast roster of heroes, each offering different playstyles such as support, carry, or initiator. Players must choose heroes that complement their team composition while countering the enemy’s choices. Items purchased during the game further enhance heroes, allowing for endless combinations and strategies. This complexity makes Dota 2 both challenging and rewarding, as no two matches are ever the same.<br>
+    <!-- OFFICIAL STEAM HERO BANNER -->
+    <div class="about-banner-wrap">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570/library_hero.jpg" alt="Dota 2 Heroes Official Artwork" class="about-banner-img">
+    </div>
 
-Beyond casual play, Dota 2 has a thriving competitive scene, highlighted by The International, one of the largest esports tournaments in the world. Professional teams from across the globe compete for massive prize pools, showcasing incredible skill and strategy. The game’s community contributes through mods, guides, and fan content, keeping the experience fresh and evolving. With its blend of fast-paced action, deep strategy, and global competition, Dota 2 has become a cornerstone of modern esports and a beloved game for millions of players worldwide.</p>
+    <!-- MAIN EXPLANATION CARD -->
+    <div class="about-card">
+        <h2>What is Dota 2?</h2>
+        <p>
+            Dota 2 is a multiplayer online battle arena (MOBA) game developed by Valve, where two teams of five players compete to destroy the opposing team’s Ancient, a large structure located within their base. Each player controls a unique hero with distinct abilities, strengths, and weaknesses, making teamwork and strategy essential. The game is played on a symmetrical map divided into three lanes, with defensive towers and neutral areas filled with creatures called creeps. Victory requires coordination, resource management, and tactical decision-making throughout the match.
+        </p>
 
-</div>
+        <p>
+            The depth of Dota 2 comes from its vast roster of heroes, each offering different playstyles such as support, carry, or initiator. Players must choose heroes that complement their team composition while countering the enemy’s choices. Items purchased during the game further enhance heroes, allowing for endless combinations and strategies. This complexity makes Dota 2 both challenging and rewarding, as no two matches are ever the same.
+        </p>
+
+        <p>
+            Beyond casual play, Dota 2 has a thriving competitive scene, highlighted by The International, one of the largest esports tournaments in the world. Professional teams from across the globe compete for massive prize pools, showcasing incredible skill and strategy. The game’s community contributes through mods, guides, and fan content, keeping the experience fresh and evolving. With its blend of fast-paced action, deep strategy, and global competition, Dota 2 has become a cornerstone of modern esports and a beloved game for millions of players worldwide.
+        </p>
+
+        <!-- 3 SUMMARY PILLARS -->
+        <div class="highlights-grid">
+            <div class="highlight-box">
+                <h3>🎮 5v5 MOBA Combat</h3>
+                <p>Dalawang koponan (Radiant at Dire) ang naglalaban para wasakin ang Ancient gamit ang galing at teamwork.</p>
+            </div>
+            <div class="highlight-box">
+                <h3>⚔️ 120+ Unique Heroes</h3>
+                <p>Bawat hero ay may sariling kakaibang skills, spells, at item customization para sa anumang laban.</p>
+            </div>
+            <div class="highlight-box">
+                <h3>🏆 The International</h3>
+                <p>Isa sa pinakamalaking esports tournament sa buong mundo na may milyon-milyong dolyar na premyo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-center">
+        <a href="index.html" class="btn">&larr; Return to Home Page</a>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        <strong>Joemar D. Dacles</strong><br>
+        OLCA122E034 &middot; OLCC01<br>
+        Web Development &copy; 2026
+    </p>
+</footer>
 
 </body>
 </html>
-
 
