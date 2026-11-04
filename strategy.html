@@ -3,35 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover Dota</title>
+<title>The Battlefield - Discover Dota</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0502 0%, #200800 50%, #000000 100%);
+    color: #f1f1f1;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ----------------- NAVIGATION ----------------- */
+nav {
+    background: #180600;
+    border-bottom: 2px solid #ff4d00;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-brand {
+    color: #ff5500;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    padding: 5px 8px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4d00;
+}
+
+/* ----------------- CONTAINER ----------------- */
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 50px 6%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ff5500;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #d1d5db;
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+}
+
+/* ----------------- IMAGE WRAPPER ----------------- */
+.map-image-wrap {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.map-main-img {
+    width: 100%;
+    max-width: 950px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #ff4d00;
+    box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----------------- CONTENT BOX ----------------- */
+.map-card {
+    background: rgba(25, 10, 5, 0.7);
+    border: 1px solid #4a1905;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    margin-bottom: 35px;
+}
+
+.map-card h2 {
+    color: #00e5ff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.map-card p {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* ----------------- MAP REGIONS GRID ----------------- */
+.map-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.map-feature-box {
+    background: #180802;
+    border: 1px solid #3d1400;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #ff4d00;
+    transition: transform 0.2s ease;
+}
+
+.map-feature-box:hover {
+    transform: translateY(-2px);
+    border-left-color: #00e5ff;
+}
+
+.map-feature-box h3 {
+    color: #ff5500;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.map-feature-box p {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.btn-center {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ff4d00 0%, #b32400 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 77, 0, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff661a 0%, #d92b00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 77, 0, 0.5);
+}
+
+/* ----------------- FOOTER ----------------- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #120400;
+    border-top: 1px solid #331100;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #ffffff;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .container {
+        padding: 30px 5%;
+    }
+
+    .map-card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
 <body>
-     <style>
-             body {
-                         background:linear-gradient(to right,#000000,#3b1200);
-                                     }
-                                             </style>
-                                             <nav>
-                                                 
-                                                     <ul>
-                                                        <div style=color:white;">
-                                                             <li><a href="index-km6az.html"><strong>Home</a></li>
-                                                             <h1>The Battlefield</h1>
-                                                             <br>
-                                                                     <div style="text-align:center;">
-                                                                     <img src="https://static.gosugamers.net/62/39/8f/93e1929b4f82a71497086782a13fe631f6948ba6abcbd496f5f70fcea7.jpg" width="1000px">
-                                                                     <div style=color:white;">
-                                                                         <p>The Dota 2 map is a large battlefield divided into Radiant and Dire sides, each with unique terrain advantages.
-                                                                                  It features three lanes—top, middle, and bottom—where creeps spawn and heroes clash to push toward enemy structures.
-                                                                                            Between the lanes lies the jungle, filled with neutral camps that provide gold, experience, and strategic control points. 
-                                                                                                      The map also includes key objectives like Roshan’s pit, runes, and towers that shape the flow of the game.
-                                                                                                                 Vision, warding, and controlling high ground areas are crucial, as the map’s layout heavily influences team strategy and positioning.
-                                                                                                                     </p>
-                                                                                                                     
-                                                                                                                             
-                                                                                                                             		
-                                                                                                                                    
-                                                                                                                                    </nav> 
-                                                                                                                                    
-                                                                                                                                    
-                                                                                                                                    </body>
-                                                                                                                                    </html>>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-brand">Dota 2 Portal</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="armory.html">Armory</a></li>
+        <li><a href="Items.html">Items</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="maps.html" class="active">Maps</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+    <h1 class="page-title">The Battlefield</h1>
+    <p class="page-subtitle">Pamilyaridad sa mapa, lanes, jungle camps, at Roshan pit ang susi sa pagkapanalo sa Dota 2.</p>
+
+    <!-- DOTA 2 MAP IMAGE -->
+    <div class="map-image-wrap">
+        <img src="https://static.gosugamers.net/62/39/8f/93e1929b4f82a71497086782a13fe631f6948ba6abcbd496f5f70fcea7.jpg" 
+             alt="Dota 2 Overview Map" 
+             class="map-main-img">
+    </div>
+
+    <!-- MAP EXPLANATION CARD -->
+    <div class="map-card">
+        <h2>Terrain, Lanes, and Key Objectives</h2>
+        <p>
+            The Dota 2 map is a large battlefield divided into Radiant and Dire sides, each with unique terrain advantages. It features three lanes—top, middle, and bottom—where creeps spawn and heroes clash to push toward enemy structures. Between the lanes lies the jungle, filled with neutral camps that provide gold, experience, and strategic control points. The map also includes key objectives like Roshan’s pit, runes, and towers that shape the flow of the game. Vision, warding, and controlling high ground areas are crucial, as the map’s layout heavily influences team strategy and positioning.
+        </p>
+
+        <!-- MAP ZONES OVERVIEW -->
+        <div class="map-features-grid">
+            <div class="map-feature-box">
+                <h3>🌲 The Three Lanes</h3>
+                <p>Top, Middle, at Bottom lanes kung saan naglalaban ang creeps at nakatayo ang mga depensibong Towers.</p>
+            </div>
+
+            <div class="map-feature-box">
+                <h3>🐉 Roshan's Pit</h3>
+                <p>Tahanan ng pinakamalakas na neutral monster na nagbibigay ng maalamat na Aegis of the Immortal at Cheese.</p>
+            </div>
+
+            <div class="map-feature-box">
+                <h3>👁️ High Ground & Wards</h3>
+                <p>Ang pagkakaroon ng vision gamit ang Observer Wards sa matataas na lugar ang nagbibigay ng kalamangan sa ganks.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-center">
+        <a href="index.html" class="btn">&larr; Return to Home Page</a>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        <strong>Joemar D. Dacles</strong><br>
+    
+    </p>
+</footer>
+
+</body>
+</html>
