@@ -3,37 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover Dota</title>
+<title>Skins and Armor Sets - Discover Dota</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0502 0%, #200800 50%, #000000 100%);
+    color: #f1f1f1;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ----------------- NAVIGATION ----------------- */
+nav {
+    background: #180600;
+    border-bottom: 2px solid #ff4d00;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-brand {
+    color: #ff5500;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    padding: 5px 8px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4d00;
+}
+
+/* ----------------- CONTAINER ----------------- */
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 50px 6%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ff5500;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #d1d5db;
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+}
+
+/* ----------------- IMAGE WRAPPER ----------------- */
+.armory-image-wrap {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.armory-main-img {
+    width: 100%;
+    max-width: 950px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #ff4d00;
+    box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----------------- CONTENT BOX ----------------- */
+.armory-card {
+    background: rgba(25, 10, 5, 0.7);
+    border: 1px solid #4a1905;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    margin-bottom: 35px;
+}
+
+.armory-card h2 {
+    color: #00e5ff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.armory-card p {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* ----------------- SKINS TIER GRID ----------------- */
+.skins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.skin-type-box {
+    background: #180802;
+    border: 1px solid #3d1400;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #ff4d00;
+}
+
+.skin-type-box h3 {
+    color: #ff5500;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.skin-type-box p {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.btn-center {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ff4d00 0%, #b32400 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 77, 0, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff661a 0%, #d92b00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 77, 0, 0.5);
+}
+
+/* ----------------- FOOTER ----------------- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #120400;
+    border-top: 1px solid #331100;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #ffffff;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .container {
+        padding: 30px 5%;
+    }
+
+    .armory-card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
 <body>
-    <style>
-        body {
-            background:linear-gradient(to right,#000000,#3b1200);
-            }
-        </style>
-       
+
+<!-- NAVIGATION -->
 <nav>
-    
+    <div class="nav-brand">Dota 2 Portal</div>
     <ul>
-        <div style=color:white;">
-        <li><a href="index-km6az.html"><strong><strong>Home</a></li><br>
-        <h1>Skins and Armor sets</h1>
-        <div style="text-align:center;">
-<img src="https://wewatch.gg/blog/wp-content/uploads/2020/05/555.jpg" width="1000px">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="armory.html" class="active">Armory</a></li>
+        <li><a href="Items.html">Items</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="maps.html">Maps</a></li>
+    </ul>
+</nav>
 
+<!-- MAIN CONTENT -->
+<main class="container">
+    <h1 class="page-title">Skins &amp; Armor Sets</h1>
+    <p class="page-subtitle">Tuklasin ang mga maalamat na cosmetics, arcana, at armor sets na nagbibigay-buhay at estilo sa bawat bayani ng Dota 2.</p>
 
-</div>
+    <!-- ARMORY SHOWCASE IMAGE -->
+    <div class="armory-image-wrap">
+        <img src="https://wewatch.gg/blog/wp-content/uploads/2020/05/555.jpg" 
+             alt="Dota 2 Skins and Armory Sets Showcase" 
+             class="armory-main-img">
+    </div>
 
-   <div style=color:white;">
+    <!-- MAIN CARD -->
+    <div class="armory-card">
+        <h2>Hero Customization &amp; Collectibles</h2>
+        <p>
+            Dota 2 offers a huge variety of armor and skin sets that let players customize their heroes with unique looks. Each set often reflects the hero’s lore, ranging from mystical robes to battle-forged armor. Some sets are rare and highly sought after, especially those released during special events or tournaments. Collecting and equipping these skins adds both style and personality to the gameplay experience.
+        </p>
+
+        <!-- 3 COSMETIC TIERS -->
+        <div class="skins-grid">
+            <div class="skin-type-box">
+                <h3>✨ Immortal Items</h3>
+                <p>Mga pambihirang gamit na may kasamang custom visual spell animations at sound effects para sa mga hero.</p>
+            </div>
+            <div class="skin-type-box">
+                <h3>🔥 Arcana Sets</h3>
+                <p>Ang pinakamataas na uri ng hero cosmetic na nagbabago sa boses, tindig, lakad, at buong anyo ng bayani.</p>
+            </div>
+            <div class="skin-type-box">
+                <h3>🛡️ Collector's Cache</h3>
+                <p>Eksklusibong community-created armor sets na nabibili lamang tuwing The International Battle Pass seasons.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-center">
+        <a href="index.html" class="btn">&larr; Return to Home Page</a>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
     <p>
-    Dota 2 offers a huge variety of armor and skin sets that let players customize their heroes with unique looks. Each set often reflects the hero’s lore, ranging from mystical robes to battle-forged armor. Some sets are rare and highly sought after, especially those released during special events or tournaments. Collecting and equipping these skins adds both style and personality to the gameplay experience.</p>
-
-</div>
-
-        
-		
-
-</nav> 
-
+        <strong>Joemar D. Dacles</strong><br>
+        OLCA122E034 &middot; OLCC01<br>
+        Web Development &copy; 2026
+    </p>
+</footer>
 
 </body>
 </html>
