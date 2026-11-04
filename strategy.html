@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Battlefield - Discover Dota</title>
+<title>Roles & Positions - Discover Dota</title>
 
 <style>
 * {
@@ -94,12 +94,12 @@ nav a.active {
 }
 
 /* ----------------- IMAGE WRAPPER ----------------- */
-.map-image-wrap {
+.strategy-image-wrap {
     text-align: center;
     margin-bottom: 35px;
 }
 
-.map-main-img {
+.strategy-main-img {
     width: 100%;
     max-width: 950px;
     height: auto;
@@ -111,7 +111,7 @@ nav a.active {
 }
 
 /* ----------------- CONTENT BOX ----------------- */
-.map-card {
+.strategy-card {
     background: rgba(25, 10, 5, 0.7);
     border: 1px solid #4a1905;
     border-radius: 12px;
@@ -120,28 +120,28 @@ nav a.active {
     margin-bottom: 35px;
 }
 
-.map-card h2 {
+.strategy-card h2 {
     color: #00e5ff;
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.map-card p {
+.strategy-card p {
     font-size: 1.05rem;
     color: #e2e8f0;
     line-height: 1.8;
     margin-bottom: 25px;
 }
 
-/* ----------------- MAP REGIONS GRID ----------------- */
-.map-features-grid {
+/* ----------------- 5 POSITIONS BREAKDOWN ----------------- */
+.roles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 18px;
     margin-top: 20px;
 }
 
-.map-feature-box {
+.role-box {
     background: #180802;
     border: 1px solid #3d1400;
     border-radius: 8px;
@@ -150,18 +150,30 @@ nav a.active {
     transition: transform 0.2s ease;
 }
 
-.map-feature-box:hover {
+.role-box:hover {
     transform: translateY(-2px);
     border-left-color: #00e5ff;
 }
 
-.map-feature-box h3 {
-    color: #ff5500;
+.role-badge {
+    display: inline-block;
+    background: #ff4d00;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.role-box h3 {
+    color: #ffffff;
     font-size: 1.15rem;
     margin-bottom: 8px;
 }
 
-.map-feature-box p {
+.role-box p {
     font-size: 0.92rem;
     color: #cbd5e1;
     line-height: 1.6;
@@ -224,7 +236,7 @@ footer strong {
         padding: 30px 5%;
     }
 
-    .map-card {
+    .strategy-card {
         padding: 20px;
     }
 }
@@ -241,45 +253,60 @@ footer strong {
         <li><a href="about.html">About</a></li>
         <li><a href="armory.html">Armory</a></li>
         <li><a href="Items.html">Items</a></li>
-        <li><a href="strategy.html">Strategy</a></li>
-        <li><a href="maps.html" class="active">Maps</a></li>
+        <li><a href="strategy.html" class="active">Strategy</a></li>
+        <li><a href="maps.html">Maps</a></li>
     </ul>
 </nav>
 
 <!-- MAIN CONTENT -->
 <main class="container">
-    <h1 class="page-title">The Battlefield</h1>
-    <p class="page-subtitle">Pamilyaridad sa mapa, lanes, jungle camps, at Roshan pit ang susi sa pagkapanalo sa Dota 2.</p>
+    <h1 class="page-title">Roles &amp; Positions</h1>
+    <p class="page-subtitle">Alamin ang estratehikong tungkulin ng bawat manlalaro mula Position 1 hanggang Position 5 sa Dota 2.</p>
 
-    <!-- DOTA 2 MAP IMAGE -->
-    <div class="map-image-wrap">
-        <img src="https://static.gosugamers.net/62/39/8f/93e1929b4f82a71497086782a13fe631f6948ba6abcbd496f5f70fcea7.jpg" 
-             alt="Dota 2 Overview Map" 
-             class="map-main-img">
+    <!-- POSITION INFOGRAPHIC IMAGE -->
+    <div class="strategy-image-wrap">
+        <img src="https://preview.redd.it/i-made-this-dota2-positions-explained-v0-qkfpdubf453g1.png?auto=webp&s=0099c7e9b9ee6c95628939e0ed1a4ebf45e2920d" 
+             alt="Dota 2 Positions 1 to 5 Explained Infographic" 
+             class="strategy-main-img">
     </div>
 
-    <!-- MAP EXPLANATION CARD -->
-    <div class="map-card">
-        <h2>Terrain, Lanes, and Key Objectives</h2>
+    <!-- MAIN STRATEGY OVERVIEW -->
+    <div class="strategy-card">
+        <h2>Strategic Purpose of Each Position</h2>
         <p>
-            The Dota 2 map is a large battlefield divided into Radiant and Dire sides, each with unique terrain advantages. It features three lanes—top, middle, and bottom—where creeps spawn and heroes clash to push toward enemy structures. Between the lanes lies the jungle, filled with neutral camps that provide gold, experience, and strategic control points. The map also includes key objectives like Roshan’s pit, runes, and towers that shape the flow of the game. Vision, warding, and controlling high ground areas are crucial, as the map’s layout heavily influences team strategy and positioning.
+            In Dota 2, each team role from Position 1 to 5 has a distinct strategic purpose. Position 1 (Carry) focuses on farming early to become the late-game damage dealer who secures victory in team fights. Position 2 (Mid) controls tempo, often rotating to other lanes to pressure enemies and create space. Position 3 (Offlane) disrupts the enemy carry, builds durable items, and initiates fights to protect their own team. Position 4 (Soft Support) roams, provides vision, and sets up plays with disables or utility. Finally, Position 5 (Hard Support) secures the lane for the carry, buys wards, and sacrifices farm to ensure the team’s overall success.
         </p>
 
-        <!-- MAP ZONES OVERVIEW -->
-        <div class="map-features-grid">
-            <div class="map-feature-box">
-                <h3>🌲 The Three Lanes</h3>
-                <p>Top, Middle, at Bottom lanes kung saan naglalaban ang creeps at nakatayo ang mga depensibong Towers.</p>
+        <!-- 5 ROLE CARDS -->
+        <div class="roles-grid">
+            <div class="role-box">
+                <span class="role-badge">Position 1</span>
+                <h3>Safe Lane Carry</h3>
+                <p>Nangunguna sa gold at items para maging pangunahing tagapanalo sa late game team fights.</p>
             </div>
 
-            <div class="map-feature-box">
-                <h3>🐉 Roshan's Pit</h3>
-                <p>Tahanan ng pinakamalakas na neutral monster na nagbibigay ng maalamat na Aegis of the Immortal at Cheese.</p>
+            <div class="role-box">
+                <span class="role-badge">Position 2</span>
+                <h3>Mid Laner</h3>
+                <p>Nangunguna sa levels, nagdidikta ng bilis ng laro, at nagro-rotate para mag-gank sa ibang lanes.</p>
             </div>
 
-            <div class="map-feature-box">
-                <h3>👁️ High Ground & Wards</h3>
-                <p>Ang pagkakaroon ng vision gamit ang Observer Wards sa matataas na lugar ang nagbibigay ng kalamangan sa ganks.</p>
+            <div class="role-box">
+                <span class="role-badge">Position 3</span>
+                <h3>Offlaner (Initiator)</h3>
+                <p>Makunat na frontline tank na unang lumulusob at gumugulo sa carry ng kabilang koponan.</p>
+            </div>
+
+            <div class="role-box">
+                <span class="role-badge">Position 4</span>
+                <h3>Soft Support (Roamer)</h3>
+                <p>Aktibong nagro-roam, nagse-set up ng kills, at bumubuo ng utility items para sa buong team.</p>
+            </div>
+
+            <div class="role-box">
+                <span class="role-badge">Position 5</span>
+                <h3>Hard Support</h3>
+                <p>Protektor ng carry sa safe lane, bumibili ng wards, at nagbibigay ng map vision.</p>
             </div>
         </div>
     </div>
@@ -293,7 +320,7 @@ footer strong {
 <footer>
     <p>
         <strong>Joemar D. Dacles</strong><br>
-    
+  
     </p>
 </footer>
 
